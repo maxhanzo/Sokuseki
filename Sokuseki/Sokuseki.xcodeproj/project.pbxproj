@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1CAA579D1F528C180027ACF1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1CAA579C1F528C180027ACF1 /* GoogleService-Info.plist */; };
+		1CAA57A01F53E1EB0027ACF1 /* SignInSignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CAA579E1F53E1EB0027ACF1 /* SignInSignUp.storyboard */; };
 		2B039B961E06EABE00C778AB /* GroupDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B039B951E06EABE00C778AB /* GroupDetailTableViewController.m */; };
 		2B039B9B1E06EAF600C778AB /* ImmigrantDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B039B991E06EAF600C778AB /* ImmigrantDetailTableViewCell.m */; };
 		2B039B9C1E06EAF600C778AB /* ImmigrantDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B039B9A1E06EAF600C778AB /* ImmigrantDetailTableViewCell.xib */; };
@@ -141,6 +142,7 @@
 		05ABC1193168D580AA1DA31D /* Pods-SokusekiUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SokusekiUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-SokusekiUITests/Pods-SokusekiUITests.release.xcconfig"; sourceTree = "<group>"; };
 		08AFC6740FD2A6A1474EC30F /* Pods-Sokuseki.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sokuseki.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sokuseki/Pods-Sokuseki.release.xcconfig"; sourceTree = "<group>"; };
 		1CAA579C1F528C180027ACF1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		1CAA579F1F53E1EB0027ACF1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/SignInSignUp.storyboard; sourceTree = "<group>"; };
 		2B039B941E06EABE00C778AB /* GroupDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GroupDetailTableViewController.h; path = ViewControllers/GroupDetailTableViewController/GroupDetailTableViewController.h; sourceTree = "<group>"; };
 		2B039B951E06EABE00C778AB /* GroupDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GroupDetailTableViewController.m; path = ViewControllers/GroupDetailTableViewController/GroupDetailTableViewController.m; sourceTree = "<group>"; };
 		2B039B981E06EAF600C778AB /* ImmigrantDetailTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImmigrantDetailTableViewCell.h; path = ViewControllers/GroupDetailTableViewController/ImmigrantDetailTableViewCell/ImmigrantDetailTableViewCell.h; sourceTree = "<group>"; };
@@ -551,6 +553,7 @@
 				2B48729D1E006A8800A41572 /* AppDelegate.h */,
 				2B48729E1E006A8800A41572 /* AppDelegate.m */,
 				2B4872A31E006A8800A41572 /* Main.storyboard */,
+				1CAA579E1F53E1EB0027ACF1 /* SignInSignUp.storyboard */,
 				2B4872A61E006A8800A41572 /* Assets.xcassets */,
 				2B4872A81E006A8800A41572 /* LaunchScreen.storyboard */,
 				2B4872AB1E006A8800A41572 /* Info.plist */,
@@ -1370,6 +1373,7 @@
 				2B4872A51E006A8800A41572 /* Main.storyboard in Resources */,
 				2B46BC371E020127007C244E /* ShipTableViewCell.xib in Resources */,
 				2B039B9C1E06EAF600C778AB /* ImmigrantDetailTableViewCell.xib in Resources */,
+				1CAA57A01F53E1EB0027ACF1 /* SignInSignUp.storyboard in Resources */,
 				2B4089D21E060028000B645E /* ImmigrantsResultsTableViewCell.xib in Resources */,
 				2B5947A21E148891002AADC8 /* PrefectureNameTableViewCell.xib in Resources */,
 				2B039BA21E06EB1E00C778AB /* GroupDetailTableViewHeaderCell.xib in Resources */,
@@ -1665,6 +1669,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		1CAA579E1F53E1EB0027ACF1 /* SignInSignUp.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				1CAA579F1F53E1EB0027ACF1 /* Base */,
+			);
+			name = SignInSignUp.storyboard;
+			sourceTree = "<group>";
+		};
 		2B4872A31E006A8800A41572 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
