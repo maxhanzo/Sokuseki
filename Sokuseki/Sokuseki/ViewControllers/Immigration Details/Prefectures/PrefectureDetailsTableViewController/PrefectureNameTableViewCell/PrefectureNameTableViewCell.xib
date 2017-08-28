@@ -1,11 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16C68" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -15,38 +18,54 @@
             <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="320" height="59"/>
+                <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Kanji" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JLk-Hs-wtm">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Kanji" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JLk-Hs-wtm">
                         <rect key="frame" x="8" y="7" width="79" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="79" id="dhX-1Y-MwC"/>
+                        </constraints>
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Romaji" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="32h-Co-Ds9">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Romaji" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="32h-Co-Ds9">
                         <rect key="frame" x="8" y="29" width="93" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="山口県" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dff-rE-BbM">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="山口県" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dff-rE-BbM">
                         <rect key="frame" x="130" y="8" width="183" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Yamaguchi-ken" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qz1-oz-6x7">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Yamaguchi-ken" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qz1-oz-6x7">
                         <rect key="frame" x="130" y="30" width="183" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <constraints>
+                    <constraint firstAttribute="bottomMargin" secondItem="qz1-oz-6x7" secondAttribute="bottom" constant="0.5" id="7lg-Gj-tS8"/>
+                    <constraint firstItem="JLk-Hs-wtm" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="8vT-Za-RWP"/>
+                    <constraint firstItem="qz1-oz-6x7" firstAttribute="top" secondItem="Dff-rE-BbM" secondAttribute="bottom" constant="1" id="BzD-NL-EVb"/>
+                    <constraint firstItem="JLk-Hs-wtm" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-1" id="E1Y-F4-TOg"/>
+                    <constraint firstItem="JLk-Hs-wtm" firstAttribute="baseline" secondItem="Dff-rE-BbM" secondAttribute="firstBaseline" id="FlJ-EE-jCH"/>
+                    <constraint firstItem="Dff-rE-BbM" firstAttribute="leading" secondItem="JLk-Hs-wtm" secondAttribute="trailing" constant="43" id="KP4-H5-Exj"/>
+                    <constraint firstItem="qz1-oz-6x7" firstAttribute="leading" secondItem="32h-Co-Ds9" secondAttribute="trailing" constant="29" id="KnH-0Y-A67"/>
+                    <constraint firstItem="32h-Co-Ds9" firstAttribute="top" secondItem="JLk-Hs-wtm" secondAttribute="bottom" constant="1" id="NbV-aw-27q"/>
+                    <constraint firstItem="Dff-rE-BbM" firstAttribute="leading" secondItem="qz1-oz-6x7" secondAttribute="leading" id="NkM-gD-sy3"/>
+                    <constraint firstItem="Dff-rE-BbM" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="QxV-0P-5Ar"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="Dff-rE-BbM" secondAttribute="trailing" constant="-1" id="XhB-8v-P1e"/>
+                    <constraint firstItem="JLk-Hs-wtm" firstAttribute="leading" secondItem="32h-Co-Ds9" secondAttribute="leading" id="bo2-C0-GRe"/>
+                    <constraint firstItem="32h-Co-Ds9" firstAttribute="baseline" secondItem="qz1-oz-6x7" secondAttribute="firstBaseline" id="iqz-sR-kga"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="32h-Co-Ds9" secondAttribute="bottom" constant="1.5" id="x0K-Z5-8o7"/>
+                    <constraint firstItem="Dff-rE-BbM" firstAttribute="trailing" secondItem="qz1-oz-6x7" secondAttribute="trailing" id="xWm-wj-l4R"/>
+                </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="lblPrefectureKanjiName" destination="Dff-rE-BbM" id="Dhn-zd-p9q"/>
