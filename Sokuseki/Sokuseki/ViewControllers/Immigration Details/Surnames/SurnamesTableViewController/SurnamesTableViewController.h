@@ -13,11 +13,14 @@
 #import "Surname.h"
 
 
-@interface SurnamesTableViewController : UITableViewController<SWRevealViewControllerDelegate>
+@interface SurnamesTableViewController : UITableViewController<SWRevealViewControllerDelegate, UISearchControllerDelegate, UISearchResultsUpdating, UISearchBarDelegate>
 @property(nonatomic, strong)  UISearchController *searchController;
 @property(nonatomic, strong) UITableView *resultsTableController;
 @property(nonatomic, strong) Surname *selectedSurname;
 @property(nonatomic, strong) NSNumber *surnameRanking;
+
+@property(nonatomic, strong) NSArray *textEntries;
+@property(nonatomic, strong) NSMutableArray *surnameSuggestions;
 
 
 @end

@@ -25,6 +25,25 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initWithAllData];
+    
+    self.searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
+    self.searchController.searchResultsUpdater = self;
+    self.searchController.dimsBackgroundDuringPresentation = NO;
+    
+    self.searchController.searchBar.delegate = self;
+    self.searchController.delegate =self;
+    self.tableView.tableHeaderView = self.searchController.searchBar;
+    
+    //If your collection of data is sorted, you won't need this.
+    self.textEntries =  [self.textEntries sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+    
+    self.surnameSuggestions = [NSMutableArray array];
+    
+    DBManager *dbManager = [DBManager getSharedInstance];
+    self.textEntries = [dbManager retrieveSurnamesPredictiveSearchbar];
+    
+    self.definesPresentationContext = YES;
+    
     self.selectedSurname = nil;
     self.surnameRanking = @0;
     [self.tableView registerNib:[UINib nibWithNibName:@"TopTenSurnameTableViewCell" bundle:[NSBundle mainBundle]] forCellReuseIdentifier:@"TopTenSurnameTableViewCell"];
@@ -33,13 +52,6 @@
     self.sectionTitles = TEN_INDEXED_TITLES;
     
     self.sectionHeaders = [self sectionsWithHeadersFromData:self.surnamesArray];
-//    self.searchController.delegate = self;
-//    self.resultsTableController = [[UITableView alloc] init];
-//    self.searchController = [[UISearchController alloc] initWithSearchResultsController:self.resultsTableController];
-//    self.searchController.searchResultsUpdater = self;
-//    [self.searchController.searchBar sizeToFit];
-//    self.tableView.tableHeaderView = self.searchController.searchBar;
-    
 
 }
 
@@ -104,18 +116,26 @@
 
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    
+    if(self.searchController.isActive)
+    {
+        return 1;
+    }
+    
     return [self.sectionTitles count];
 }
 
-//- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
-//{
-//    return [self.sectionTitles objectAtIndex:section];
-//}
-
-
-
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
+    
+    if(self.searchController.isActive)
+    {
+        if(self.surnameSuggestions)
+        {
+            return [self.surnameSuggestions count];
+        }
+    }
+    
     NSString *sectionKey = [self.sectionTitles objectAtIndex: section];
     NSArray *sectionCollection = [self.sectionHeaders objectForKey: sectionKey];
     if(sectionCollection)
@@ -125,6 +145,19 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if(self.searchController.isActive)
+    {
+        static NSString *CellIdentifier = @"SurnameCommonCell";
+        
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: CellIdentifier forIndexPath: indexPath];
+        
+        
+        Surname* cellSurname = [self.surnameSuggestions objectAtIndex:indexPath.row];
+        NSString* cellText = cellSurname.romaji ?: @"";
+        [cell.textLabel setText: cellText];
+        
+        return cell;
+    }
     
     NSInteger totalNumberOfImmigrants = [self calculateTotalNumberOfImmigrants];
     NSString *sectionKey = [self.sectionTitles objectAtIndex: indexPath.section];
@@ -187,6 +220,27 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if(self.searchController.isActive)
+    {
+        Surname* selectedSurname = [self.surnameSuggestions objectAtIndex: indexPath.row];
+        if(selectedSurname)
+        {
+            self.selectedSurname = selectedSurname;
+            NSInteger selectedSurnameIndex =[self.surnamesArray indexOfObject:selectedSurname];
+            if(NSNotFound != selectedSurnameIndex)
+            {
+                self.surnameRanking = [NSNumber numberWithInteger:selectedSurnameIndex + 1];
+            }
+            
+            [self performSegueWithIdentifier:@"SurnameDetailsSegue" sender:self];
+            [self clearData];
+        }
+
+    }
+    
+    else
+    {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
     self.selectedSurname = [self.surnamesArray objectAtIndex: indexPath.row];
     
     NSString *sectionKey = [self.sectionTitles objectAtIndex: indexPath.section];
@@ -196,7 +250,8 @@
     //This is wrong.
     NSInteger ranking = (indexPath.section!=0)? (indexPath.row + 1)*indexPath.section: (indexPath.row + 1);
     self.surnameRanking = [NSNumber numberWithInteger:ranking];
-    [self performSegueWithIdentifier:@"SurnameDetailsSegue" sender:self];
+            [self performSegueWithIdentifier:@"SurnameDetailsSegue" sender:self];
+        }
 }
 
 
@@ -279,6 +334,38 @@
 }
 
 
+#pragma mark - UISearchBar delegate
 
+-(void) updateSearchResultsForSearchController:(UISearchController *)searchController
+{
+    NSString* substring = searchController.searchBar.text;
+    [self searchData:substring];
+}
+
+
+-(void) searchData: (NSString*) data
+{
+    [self.surnameSuggestions removeAllObjects];
+    
+    for (Surname* item in self.surnamesArray)
+    {
+        if ([item.romaji rangeOfString:data
+                        options:(NSAnchoredSearch | NSCaseInsensitiveSearch)].location != NSNotFound)
+            [self.surnameSuggestions addObject:item];
+    }
+    
+    [self.tableView reloadData];
+}
+
+
+-(void) clearData
+{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.1 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+        [self.searchController setActive: NO];
+        [self.surnameSuggestions removeAllObjects];
+        [self.tableView reloadData];
+    });
+    
+}
 
 @end
