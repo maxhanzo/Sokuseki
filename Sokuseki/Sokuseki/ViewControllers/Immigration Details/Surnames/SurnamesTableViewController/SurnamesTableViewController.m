@@ -34,13 +34,9 @@
     self.searchController.delegate =self;
     self.tableView.tableHeaderView = self.searchController.searchBar;
     
-    //If your collection of data is sorted, you won't need this.
-    self.textEntries =  [self.textEntries sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
-    
     self.surnameSuggestions = [NSMutableArray array];
     
-    DBManager *dbManager = [DBManager getSharedInstance];
-    self.textEntries = [dbManager retrieveSurnamesPredictiveSearchbar];
+    
     
     self.definesPresentationContext = YES;
     

@@ -19,7 +19,6 @@
 @property(nonatomic, strong) Surname *selectedSurname;
 @property(nonatomic, strong) NSNumber *surnameRanking;
 
-@property(nonatomic, strong) NSArray *textEntries;
 @property(nonatomic, strong) NSMutableArray *surnameSuggestions;
 
 

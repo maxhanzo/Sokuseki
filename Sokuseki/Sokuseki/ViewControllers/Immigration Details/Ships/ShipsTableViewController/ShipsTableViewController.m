@@ -25,6 +25,22 @@
     DBManager *dbManager = [DBManager getSharedInstance];
     self.shipsArray = [dbManager retrieveAllSteamers];
     self.selectedShip = nil;
+    
+    
+    self.searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
+    self.searchController.searchResultsUpdater = self;
+    self.searchController.dimsBackgroundDuringPresentation = NO;
+    
+    self.searchController.searchBar.delegate = self;
+    self.searchController.delegate =self;
+    self.tableView.tableHeaderView = self.searchController.searchBar;
+    
+    //If your collection of data is sorted, you won't need this.
+    self.textEntries =  [self.textEntries sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
+    
+    self.shipsSuggestions = [NSMutableArray array];
+    
+    
 }
 
 -(void) viewWillAppear:(BOOL)animated
@@ -50,6 +66,15 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if(self.searchController.isActive)
+    {
+        if(self.shipsSuggestions)
+        {
+            return [self.shipsSuggestions count];
+        }
+    }
+
+    
     if(self.shipsArray)
     {
         return [self.shipsArray count];
@@ -60,6 +85,21 @@
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    if(self.searchController.isActive)
+    {
+        static NSString *CellIdentifier = @"ShipCommonCell";
+        
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier: CellIdentifier forIndexPath: indexPath];
+        
+        
+        Steamer* steamer = [self.shipsSuggestions objectAtIndex:indexPath.row];
+        NSString* cellText = steamer.shipName ?: @"";
+        [cell.textLabel setText: cellText];
+        
+        return cell;
+    }
+    
     
     Steamer* steamer = [self.shipsArray objectAtIndex: indexPath.row];
     
@@ -84,11 +124,20 @@
 -(void) tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    Steamer *selectedSteamer = [self.shipsArray objectAtIndex:indexPath.row];
-    if(selectedSteamer){
-        self.selectedShip = selectedSteamer;
+    if(self.searchController.isActive)
+    {
+        Steamer* searchControllerSteamer = [self.shipsSuggestions objectAtIndex:indexPath.row];
+        self.selectedShip = searchControllerSteamer;
+        [self clearData];
     }
     
+    else
+    {
+        Steamer *selectedSteamer = [self.shipsArray objectAtIndex:indexPath.row];
+        if(selectedSteamer){
+            self.selectedShip = selectedSteamer;
+        }
+    }
     [self performSegueWithIdentifier: @"ShipDetailsSegue" sender: self];
 }
 
@@ -149,5 +198,40 @@
     }
 }
 
+
+
+#pragma mark - UISearchBar delegate
+
+-(void) updateSearchResultsForSearchController:(UISearchController *)searchController
+{
+    NSString* substring = searchController.searchBar.text;
+    [self searchData:substring];
+}
+
+
+-(void) searchData: (NSString*) data
+{
+    [self.shipsSuggestions removeAllObjects];
+    
+    for (Steamer* item in self.shipsArray)
+    {
+        if ([item.shipName rangeOfString:data
+                               options:(NSAnchoredSearch | NSCaseInsensitiveSearch)].location != NSNotFound)
+            [self.shipsSuggestions addObject:item];
+    }
+    
+    [self.tableView reloadData];
+}
+
+
+-(void) clearData
+{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, 0.1 * NSEC_PER_SEC), dispatch_get_main_queue(), ^{
+        [self.searchController setActive: NO];
+        [self.shipsSuggestions removeAllObjects];
+        [self.tableView reloadData];
+    });
+    
+}
 
 @end

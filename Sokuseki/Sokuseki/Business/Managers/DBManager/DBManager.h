@@ -6,11 +6,8 @@
 //  Copyright (c) 2014 UedaSoft IT Solutions. All rights reserved.
 // - Needs to be refactored!
 //
-//#define immigrantSelectFormat @"SELECT immigrantGroupShipPrefecture.immigrantid, immigrantGroupShipPrefecture.groupid, immigrantGroupShipPrefecture.Destination, immigrantGroupShipPrefecture.Year, immigrantGroupShipPrefecture.Farm, immigrantGroupShipPrefecture.ArrivalDate, immigrantGroupShipPrefecture.DepartureDate,immigrantGroupShipPrefecture.ShipName, immigrantGroupShipPrefecture.PrefectureName, immigrantGroupShipPrefecture.NameRomaji, immigrantGroupShipPrefecture.SurnameRomaji,  immigrantGroupShipPrefecture.SurnameKanji, immigrantGroupShipPrefecture.NameKanji, (SELECT COUNT (I2.GroupID) FROM immigrantGroupShipPrefecture I2 WHERE immigrantGroupShipPrefecture.GroupID = I2.GroupID )AS Companions , G.Station  FROM immigrantGroupShipPrefecture INNER JOIN \"Group\" AS G ON G.ID = immigrantGroupShipPrefecture.groupID WHERE ((1=1) %@ %@ %@ %@ %@ %@ %@ %@ %@ %@) %@"
 
 #define immigrantSelectFormat @"SELECT immigrantid, groupid, Destination, Year, Farm, ArrivalDate, DepartureDate,ShipName, PrefectureName, NameRomaji, SurnameRomaji,  SurnameKanji, NameKanji,  Companions , Station  FROM immigrantGroupShipPrefectureComplete  WHERE ((1=1) %@ %@ %@ %@ %@ %@ %@ %@ %@ %@) %@"
-
-
 
 #define whereClauseNameRomajiFormat @" AND (NameRomaji LIKE '%%'||'%@'||'%%')"
 #define whereClauseSurnameRomajiFormat @" AND (SurnameRomaji LIKE '%%'||'%@'||'%%')"
@@ -18,8 +15,7 @@
 #define whereClauseSurnameKanjiFormat @" AND (SurnameKanji LIKE '%%'||'%@'||'%%')"
 #define whereClauseShipNameFormat @" AND (ShipName LIKE '%%'||'%@'||'%%')"
 #define whereClausePrefectureNameFormat @" AND (PrefectureName LIKE '%%'||'%@'||'%%')"
-//#define whereClauseYearFormat @" AND (immigrantGroupShipPrefecture.Year >= %i)"
-#define whereClauseYearFormat @" AND (immigrantGroupShipPrefecture.Year == %i)"
+#define whereClauseYearFormat @" AND (Year == %i)"
 #define whereClauseDepartureDateFormat @" AND (DepartureDate >= '%@')"
 #define whereClauseArrivalDateFormat @" AND (ArrivalDate <= '%@')"
 #define whereClauseGroupIDFormat @" AND (groupid = %li)"
@@ -29,18 +25,6 @@
 #define groupSelectFormatWithPrefecture @"SELECT G.ID, G.ShipID, G.Destination, G.Station, G.Farm, G.ArrivalDate, G.DepartureDate, G.Year, P.Name AS  PrefectureName FROM \"Group\" AS G INNER JOIN Prefecture P ON GroupPrefecture.PrefectureID = P.ID INNER JOIN GroupPrefecture ON G.ID = GroupPrefecture.GroupID WHERE ((1=1) %@)"
 
 #define whereClauseGroupGroupIDFormat @" AND (ID = %i)"
-/*
- AND (immigrantGroupShipPrefecture.NameRomaji LIKE '%'||''||'%')
- AND (immigrantGroupShipPrefecture.SurnameRomaji LIKE '%'||''||'%')
- AND (immigrantGroupShipPrefecture.NameKanji LIKE '%'||''||'%')
- AND (immigrantGroupShipPrefecture.SurnameKanji LIKE '%'||''||'%')
- AND (immigrantGroupShipPrefecture.ShipName LIKE '%'||''||'%')
- AND (immigrantGroupShipPrefecture.PrefectureName LIKE '%'||''||'%')
- AND (immigrantGroupShipPrefecture.Year >= 1900)
- AND (immigrantGroupShipPrefecture.DepartureDate >= '1900-01-01')
- AND (immigrantGroupShipPrefecture.ArrivalDate <= '2014-01-01'))
- 
- */
 
 #import <Foundation/Foundation.h>
 #import "FMDatabase.h"

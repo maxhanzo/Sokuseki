@@ -33,6 +33,7 @@
         NSArray* searchResults  = [DBManager searchImmigrantWithData:searchParameters.searchAshiatoParameters];
         if(searchResults)
         {
+            [self.activityIndicator stopAnimating];
             if([searchResults count]>0)
             dispatch_async(dispatch_get_main_queue(),^{
                 self.immigrantResults = searchResults;
@@ -44,7 +45,7 @@
             else
             {
                     //Display a text when the UITableView has no data
-                    [self.activityIndicator stopAnimating];
+                     dispatch_async(dispatch_get_main_queue(),^{
                 
                     UILabel *messageLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, self.view.bounds.size.width, self.view.bounds.size.height)];
                 
@@ -57,7 +58,8 @@
                     [messageLabel sizeToFit];
                 
                     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-                    self.tableView.backgroundView = messageLabel;
+                         self.tableView.backgroundView = messageLabel;
+                     });
                 
             }
         }
