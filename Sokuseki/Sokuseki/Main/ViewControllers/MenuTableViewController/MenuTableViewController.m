@@ -85,16 +85,14 @@
         case 8:
             CellIdentifier = @"ContactsSection";
             break;
-            
         case 9:
-            CellIdentifier = @"SocialMediaCell";
-            break;
-            
-        case 10:
             CellIdentifier = @"EmailCell";
             break;
-        case 11:
+        case 10:
             CellIdentifier = @"AboutCell";
+            break;
+        case 11:
+            CellIdentifier = @"SignOut";
             break;
     }
     

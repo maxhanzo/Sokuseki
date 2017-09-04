@@ -313,6 +313,10 @@
         }
     }
     
+    else if([segue.identifier isEqualToString: @"SignOutUnwindSegue"])
+    {
+        [self.view.window.rootViewController dismissViewControllerAnimated:YES completion:nil];
+    }
     
     [self setWindingActionID:@""];
     [tagParameters resetInstance];
@@ -660,6 +664,7 @@
     }
     
 }
+
 
 - (BOOL)shouldPerformSegueWithIdentifier:(NSString *)identifier sender:(id)sender
 {

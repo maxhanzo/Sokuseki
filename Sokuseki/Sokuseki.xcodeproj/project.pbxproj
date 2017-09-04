@@ -12,6 +12,8 @@
 		1C4FE06B1F5CEB140085A9ED /* Resources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 1C4FE06A1F5CEB140085A9ED /* Resources.bundle */; };
 		1CAA579D1F528C180027ACF1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 1CAA579C1F528C180027ACF1 /* GoogleService-Info.plist */; };
 		1CAA57A01F53E1EB0027ACF1 /* SignInSignUp.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1CAA579E1F53E1EB0027ACF1 /* SignInSignUp.storyboard */; };
+		1CCAA5F21F5CF93F00C4B075 /* SignInViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CCAA5EE1F5CF93F00C4B075 /* SignInViewController.m */; };
+		1CCAA5F31F5CF93F00C4B075 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1CCAA5F11F5CF93F00C4B075 /* SignUpViewController.m */; };
 		2B039B961E06EABE00C778AB /* GroupDetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B039B951E06EABE00C778AB /* GroupDetailTableViewController.m */; };
 		2B039B9B1E06EAF600C778AB /* ImmigrantDetailTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B039B991E06EAF600C778AB /* ImmigrantDetailTableViewCell.m */; };
 		2B039B9C1E06EAF600C778AB /* ImmigrantDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B039B9A1E06EAF600C778AB /* ImmigrantDetailTableViewCell.xib */; };
@@ -148,6 +150,10 @@
 		1C4FE06A1F5CEB140085A9ED /* Resources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Resources.bundle; sourceTree = "<group>"; };
 		1CAA579C1F528C180027ACF1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		1CAA579F1F53E1EB0027ACF1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/SignInSignUp.storyboard; sourceTree = "<group>"; };
+		1CCAA5ED1F5CF93F00C4B075 /* SignInViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignInViewController.h; sourceTree = "<group>"; };
+		1CCAA5EE1F5CF93F00C4B075 /* SignInViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignInViewController.m; sourceTree = "<group>"; };
+		1CCAA5F01F5CF93F00C4B075 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
+		1CCAA5F11F5CF93F00C4B075 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
 		2B039B941E06EABE00C778AB /* GroupDetailTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GroupDetailTableViewController.h; path = Main/ViewControllers/GroupDetailTableViewController/GroupDetailTableViewController.h; sourceTree = "<group>"; };
 		2B039B951E06EABE00C778AB /* GroupDetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GroupDetailTableViewController.m; path = Main/ViewControllers/GroupDetailTableViewController/GroupDetailTableViewController.m; sourceTree = "<group>"; };
 		2B039B981E06EAF600C778AB /* ImmigrantDetailTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ImmigrantDetailTableViewCell.h; path = Main/ViewControllers/GroupDetailTableViewController/ImmigrantDetailTableViewCell/ImmigrantDetailTableViewCell.h; sourceTree = "<group>"; };
@@ -368,6 +374,56 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1CCAA5E51F5CF81C00C4B075 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				2BB948DB1E05F5DE003E1310 /* Utilities */,
+				2BB948301E05EE11003E1310 /* Business */,
+				2BB9481C1E05E8F1003E1310 /* Resources */,
+				2B4872DE1E0168D900A41572 /* Shared Instances */,
+				2B4872D91E0095F600A41572 /* ViewControllers */,
+				2B4872CD1E0081BD00A41572 /* Frameworks */,
+			);
+			name = Main;
+			sourceTree = "<group>";
+		};
+		1CCAA5E61F5CF85000C4B075 /* Sign In */ = {
+			isa = PBXGroup;
+			children = (
+				1CCAA5EA1F5CF88C00C4B075 /* ViewControllers */,
+			);
+			name = "Sign In";
+			sourceTree = "<group>";
+		};
+		1CCAA5EA1F5CF88C00C4B075 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				1CCAA5EC1F5CF93F00C4B075 /* SignInViewController */,
+				1CCAA5EF1F5CF93F00C4B075 /* SignUpViewController */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		1CCAA5EC1F5CF93F00C4B075 /* SignInViewController */ = {
+			isa = PBXGroup;
+			children = (
+				1CCAA5ED1F5CF93F00C4B075 /* SignInViewController.h */,
+				1CCAA5EE1F5CF93F00C4B075 /* SignInViewController.m */,
+			);
+			name = SignInViewController;
+			path = "Sign In/ViewControllers/SignInViewController";
+			sourceTree = "<group>";
+		};
+		1CCAA5EF1F5CF93F00C4B075 /* SignUpViewController */ = {
+			isa = PBXGroup;
+			children = (
+				1CCAA5F01F5CF93F00C4B075 /* SignUpViewController.h */,
+				1CCAA5F11F5CF93F00C4B075 /* SignUpViewController.m */,
+			);
+			name = SignUpViewController;
+			path = "Sign In/ViewControllers/SignUpViewController";
+			sourceTree = "<group>";
+		};
 		2B039B901E06EA5E00C778AB /* GroupDetailTableViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -544,12 +600,8 @@
 		2B4872991E006A8800A41572 /* Sokuseki */ = {
 			isa = PBXGroup;
 			children = (
-				2BB948DB1E05F5DE003E1310 /* Utilities */,
-				2BB948301E05EE11003E1310 /* Business */,
-				2BB9481C1E05E8F1003E1310 /* Resources */,
-				2B4872DE1E0168D900A41572 /* Shared Instances */,
-				2B4872D91E0095F600A41572 /* ViewControllers */,
-				2B4872CD1E0081BD00A41572 /* Frameworks */,
+				1CCAA5E61F5CF85000C4B075 /* Sign In */,
+				1CCAA5E51F5CF81C00C4B075 /* Main */,
 				2B48729D1E006A8800A41572 /* AppDelegate.h */,
 				2B48729E1E006A8800A41572 /* AppDelegate.m */,
 				2B4872A31E006A8800A41572 /* Main.storyboard */,
@@ -1588,6 +1640,7 @@
 				2B8DAE571E10C466007603F2 /* GroupDetailTableViewFooterCell.m in Sources */,
 				2BB948681E05EE11003E1310 /* Passenger.m in Sources */,
 				2B5947A11E148891002AADC8 /* PrefectureNameTableViewCell.m in Sources */,
+				1CCAA5F21F5CF93F00C4B075 /* SignInViewController.m in Sources */,
 				2B7D97031E11CF6F00818754 /* PrefectureStatsTableViewCell.m in Sources */,
 				2BFD5CFB1E170D1700AF18B9 /* FacebookTwitterViewController.m in Sources */,
 				2BB948701E05EE11003E1310 /* DBManager.m in Sources */,
@@ -1625,6 +1678,7 @@
 				2BB948651E05EE11003E1310 /* Group.m in Sources */,
 				2B4E21011E034F1700502C32 /* SearchParameters.m in Sources */,
 				1C4FE0661F5CE9D70085A9ED /* UIImage+ImageEffects.m in Sources */,
+				1CCAA5F31F5CF93F00C4B075 /* SignUpViewController.m in Sources */,
 				2B46BC3C1E0204C6007C244E /* YearTableViewCell.m in Sources */,
 				2B4394941E316257007A8E56 /* SurnameDetailsHeaderTableViewCell.m in Sources */,
 				2BB948671E05EE11003E1310 /* Parameter.m in Sources */,

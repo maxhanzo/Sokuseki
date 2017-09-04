@@ -295,7 +295,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="29"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Contact" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QsF-0A-bq0">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="User" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QsF-0A-bq0">
                                             <rect key="frame" x="10" y="3" width="156" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
@@ -306,28 +306,28 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SocialMediaCell" id="WOL-yR-93j">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AboutCell" id="NwJ-En-Jsf">
                                 <rect key="frame" x="0.0" y="435" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WOL-yR-93j" id="jSE-Nv-5XQ">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NwJ-En-Jsf" id="WQB-Ak-zLU">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Facebook &amp; Twitter" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="79X-pd-mHH">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="About" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zg5-jg-VV6">
                                             <rect key="frame" x="44" y="11" width="156" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="mobile" translatesAutoresizingMaskIntoConstraints="NO" id="ea8-2e-5bV">
+                                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="information-icon" translatesAutoresizingMaskIntoConstraints="NO" id="jgI-Vt-cxe">
                                             <rect key="frame" x="12" y="9" width="25" height="25"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="1b0-Za-Mxv" kind="custom" identifier="FacebookTwitterSegue" customClass="SWRevealViewControllerSeguePushController" id="ltS-Qa-K3h"/>
+                                    <segue destination="uyS-7h-Oqv" kind="custom" identifier="AboutSegue" customClass="SWRevealViewControllerSeguePushController" id="TtL-bU-lzj"/>
                                 </connections>
                             </tableViewCell>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="EmailCell" id="qAf-Oe-AVb">
@@ -351,28 +351,28 @@
                                     </subviews>
                                 </tableViewCellContentView>
                             </tableViewCell>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="AboutCell" id="NwJ-En-Jsf">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SignOut" id="WOL-yR-93j">
                                 <rect key="frame" x="0.0" y="523" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="NwJ-En-Jsf" id="WQB-Ak-zLU">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WOL-yR-93j" id="jSE-Nv-5XQ">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="About" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zg5-jg-VV6">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sign Out" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="79X-pd-mHH">
                                             <rect key="frame" x="44" y="11" width="156" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="information-icon" translatesAutoresizingMaskIntoConstraints="NO" id="jgI-Vt-cxe">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sign-out-icon" translatesAutoresizingMaskIntoConstraints="NO" id="ea8-2e-5bV">
                                             <rect key="frame" x="12" y="9" width="25" height="25"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="uyS-7h-Oqv" kind="custom" identifier="AboutSegue" customClass="SWRevealViewControllerSeguePushController" id="TtL-bU-lzj"/>
+                                    <segue destination="aWy-St-EaP" kind="unwind" identifier="SignOutUnwindSegue" unwindAction="prepareForUnwind:" id="S5y-8S-cVw"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -383,6 +383,7 @@
                     </tableView>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3OT-CU-W3x" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="aWy-St-EaP" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="-2088.75" y="255.63380281690141"/>
         </scene>
@@ -1052,46 +1053,6 @@
             <point key="canvasLocation" x="-3647" y="-1457"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="qV6-2S-TLd">
-            <objects>
-                <navigationController id="1b0-Za-Mxv" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Pm9-m4-hN9">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="3bZ-1d-NSs" kind="relationship" relationship="rootViewController" id="e5a-bu-uLg"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="0m6-qU-C0Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-2220" y="-636"/>
-        </scene>
-        <!--Facebook/Twitter-->
-        <scene sceneID="KuJ-Ku-Jsq">
-            <objects>
-                <viewController storyboardIdentifier="FacebookTwitterViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="3bZ-1d-NSs" customClass="FacebookTwitterViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Gdq-iK-LRR"/>
-                        <viewControllerLayoutGuide type="bottom" id="rvB-x9-pw7"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="R6F-ol-2WT">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" title="Facebook/Twitter" id="JvX-9q-E8h">
-                        <barButtonItem key="leftBarButtonItem" image="reveal-icon" id="kAo-LU-91v"/>
-                    </navigationItem>
-                    <connections>
-                        <outlet property="revealButtonItem" destination="kAo-LU-91v" id="GUg-rk-oFb"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hgz-vO-6f7" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1531" y="-636"/>
-        </scene>
-        <!--Navigation Controller-->
         <scene sceneID="YLm-J5-bwp">
             <objects>
                 <navigationController id="sZl-Kx-DwU" sceneMemberID="viewController">
@@ -1453,9 +1414,9 @@
         <image name="Arrows-Back-icon" width="22" height="22"/>
         <image name="ShinAshiatoBG" width="568" height="320"/>
         <image name="information-icon" width="30" height="30"/>
-        <image name="mobile" width="30" height="30"/>
         <image name="reveal-icon" width="22" height="17"/>
         <image name="ship-icon" width="512" height="512"/>
+        <image name="sign-out-icon" width="512" height="512"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="5Np-En-NeB"/>
