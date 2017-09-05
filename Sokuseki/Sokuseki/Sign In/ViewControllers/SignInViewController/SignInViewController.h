@@ -11,4 +11,9 @@
 @interface SignInViewController : UIViewController
 @property (nonatomic, weak) IBOutlet UITextField *txtEmail;
 @property (nonatomic, weak) IBOutlet UITextField *txtPassword;
+
+-(IBAction) signInWithPassword: (id) sender;
+-(IBAction) signInWithFacebook: (id) sender;
+-(IBAction) signInWithTwitter: (id) sender;
+-(IBAction) signInWithGoogle: (id) sender;
 @end

@@ -88,6 +88,7 @@
 		2B7D97161E11E36A00818754 /* PrefectureStatsTableViewFooter.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B7D97141E11E36A00818754 /* PrefectureStatsTableViewFooter.xib */; };
 		2B8DAE571E10C466007603F2 /* GroupDetailTableViewFooterCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B8DAE551E10C466007603F2 /* GroupDetailTableViewFooterCell.m */; };
 		2B8DAE581E10C466007603F2 /* GroupDetailTableViewFooterCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B8DAE561E10C466007603F2 /* GroupDetailTableViewFooterCell.xib */; };
+		2B9C16E91F5D975C00593FBA /* SignInSignUpBusiness.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B9C16E81F5D975C00593FBA /* SignInSignUpBusiness.m */; };
 		2BB948131E05D478003E1310 /* OpenCloseBlurredViewControllerSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BB948121E05D478003E1310 /* OpenCloseBlurredViewControllerSegue.m */; };
 		2BB948651E05EE11003E1310 /* Group.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BB948371E05EE11003E1310 /* Group.m */; };
 		2BB948661E05EE11003E1310 /* Immigrant.m in Sources */ = {isa = PBXBuildFile; fileRef = 2BB9483A1E05EE11003E1310 /* Immigrant.m */; };
@@ -274,6 +275,8 @@
 		2B8DAE541E10C466007603F2 /* GroupDetailTableViewFooterCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GroupDetailTableViewFooterCell.h; path = Main/ViewControllers/GroupDetailTableViewController/GroupDetailTableViewFooterCell/GroupDetailTableViewFooterCell.h; sourceTree = "<group>"; };
 		2B8DAE551E10C466007603F2 /* GroupDetailTableViewFooterCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GroupDetailTableViewFooterCell.m; path = Main/ViewControllers/GroupDetailTableViewController/GroupDetailTableViewFooterCell/GroupDetailTableViewFooterCell.m; sourceTree = "<group>"; };
 		2B8DAE561E10C466007603F2 /* GroupDetailTableViewFooterCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GroupDetailTableViewFooterCell.xib; path = Main/ViewControllers/GroupDetailTableViewController/GroupDetailTableViewFooterCell/GroupDetailTableViewFooterCell.xib; sourceTree = "<group>"; };
+		2B9C16E71F5D975C00593FBA /* SignInSignUpBusiness.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SignInSignUpBusiness.h; path = "Sign In/Business/SignInSignUp/SignInSignUpBusiness.h"; sourceTree = "<group>"; };
+		2B9C16E81F5D975C00593FBA /* SignInSignUpBusiness.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SignInSignUpBusiness.m; path = "Sign In/Business/SignInSignUp/SignInSignUpBusiness.m"; sourceTree = "<group>"; };
 		2BB948111E05D478003E1310 /* OpenCloseBlurredViewControllerSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OpenCloseBlurredViewControllerSegue.h; path = Main/Frameworks/OpenCloseBlurredViewControllerSegue/OpenCloseBlurredViewControllerSegue.h; sourceTree = "<group>"; };
 		2BB948121E05D478003E1310 /* OpenCloseBlurredViewControllerSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OpenCloseBlurredViewControllerSegue.m; path = Main/Frameworks/OpenCloseBlurredViewControllerSegue/OpenCloseBlurredViewControllerSegue.m; sourceTree = "<group>"; };
 		2BB948361E05EE11003E1310 /* Group.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Group.h; sourceTree = "<group>"; };
@@ -390,6 +393,7 @@
 		1CCAA5E61F5CF85000C4B075 /* Sign In */ = {
 			isa = PBXGroup;
 			children = (
+				2B9C16E61F5D96E400593FBA /* Business */,
 				1CCAA5EA1F5CF88C00C4B075 /* ViewControllers */,
 			);
 			name = "Sign In";
@@ -928,6 +932,15 @@
 				2B8DAE561E10C466007603F2 /* GroupDetailTableViewFooterCell.xib */,
 			);
 			name = GroupDetailTableViewFooterCell;
+			sourceTree = "<group>";
+		};
+		2B9C16E61F5D96E400593FBA /* Business */ = {
+			isa = PBXGroup;
+			children = (
+				2B9C16E71F5D975C00593FBA /* SignInSignUpBusiness.h */,
+				2B9C16E81F5D975C00593FBA /* SignInSignUpBusiness.m */,
+			);
+			name = Business;
 			sourceTree = "<group>";
 		};
 		2BB948101E05D42C003E1310 /* OpenCloseBlurredViewControllerSegue */ = {
@@ -1618,6 +1631,7 @@
 			files = (
 				2BB9486D1E05EE11003E1310 /* SurnameDetail.m in Sources */,
 				2B4872EA1E016A1100A41572 /* TagParameters.m in Sources */,
+				2B9C16E91F5D975C00593FBA /* SignInSignUpBusiness.m in Sources */,
 				2B7D970E1E11DFC600818754 /* PrefectureStatsTopTableViewCell.m in Sources */,
 				2B46BC231E020057007C244E /* YearInputTableViewController.m in Sources */,
 				2B039B9B1E06EAF600C778AB /* ImmigrantDetailTableViewCell.m in Sources */,

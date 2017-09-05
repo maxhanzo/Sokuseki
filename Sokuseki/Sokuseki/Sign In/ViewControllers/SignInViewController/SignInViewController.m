@@ -7,7 +7,7 @@
 //
 
 #import "SignInViewController.h"
-
+#import "SignInSignUpBusiness.h"
 @interface SignInViewController ()
 
 @end
@@ -38,5 +38,42 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+
+}
+
+-(IBAction) signInWithPassword: (id) sender
+{
+    NSString *email = self.txtEmail.text ?: @"";
+    NSString *password = self.txtPassword.text ?: @"";
+    if(([email length]>0) && ([password length]>0))
+    {
+        //Login with Firebase
+        [self performSegueWithIdentifier: @"SignInSegue" sender: self];
+    }
+    
+    else
+    {
+        [self alertControllerWithMessage: @"Preencha todos os campos!"];
+    }
+}
+-(IBAction) signInWithFacebook: (id) sender{}
+-(IBAction) signInWithTwitter: (id) sender{}
+-(IBAction) signInWithGoogle: (id) sender{}
+
+-(void) alertControllerWithMessage: (NSString*) message
+{
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:@""
+                                                                   message:message
+                                                            preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                          handler:^(UIAlertAction * action) {}];
+    
+    [alert addAction:defaultAction];
+    [self presentViewController:alert animated:YES completion:nil];
+}
 
 @end

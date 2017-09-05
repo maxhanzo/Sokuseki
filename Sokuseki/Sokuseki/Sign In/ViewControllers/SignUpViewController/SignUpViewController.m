@@ -7,6 +7,7 @@
 //
 
 #import "SignUpViewController.h"
+#import "SignInSignUpBusiness.h"
 
 @interface SignUpViewController ()
 
@@ -34,6 +35,53 @@
         destinationViewController.txtPassword.text = self.txtPassword.text;
     }
 }
+
+-(IBAction)submitSignUpInformation:(id)sender
+{
+    NSString* email = self.txtEmail.text ?: @"";
+    NSString* password = self.txtPassword.text ?: @"";
+    NSString* confirmPassword = self.txtConfirmPassword.text ?: @"";
+    
+    if(([email length] == 0)&& ([password length] == 0) && ([confirmPassword length] == 0))
+    {
+        [self alertControllerWithMessage:@"Preencha todos os campos"];
+    }
+    
+    else
+    {
+        if([SignInSignUpBusiness validateEmail:email])
+        {
+            if([SignInSignUpBusiness confirmPassword:password withConfirmation:confirmPassword])
+            {
+                //Firebase stuff
+                [self performSegueWithIdentifier:@"SignUpSegue" sender:self];
+            }
+            else
+            {
+                
+                [self alertControllerWithMessage: @"A senha não confere. Confirme sua senha."];
+            }
+        }
+        else
+        {
+            [self alertControllerWithMessage: @"Email inválido. Digite um email no formato exemplo@exemplo.com."];
+        }
+    }
+}
+
+-(void) alertControllerWithMessage: (NSString*) message
+{
+    UIAlertController* alert = [UIAlertController alertControllerWithTitle:@""
+                                                                   message:message
+                                                            preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction* defaultAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault
+                                                          handler:^(UIAlertAction * action) {}];
+    
+    [alert addAction:defaultAction];
+    [self presentViewController:alert animated:YES completion:nil];
+}
+
 /*
 #pragma mark - Navigation
 

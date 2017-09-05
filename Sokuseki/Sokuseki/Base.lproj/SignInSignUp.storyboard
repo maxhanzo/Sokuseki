@@ -65,9 +65,6 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <color key="tintColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                 <state key="normal" title="Sign In"/>
-                                <connections>
-                                    <segue destination="G2A-yf-pPo" kind="presentation" identifier="SignInSegue" id="GzL-WH-uir"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JRl-vz-KVa">
                                 <rect key="frame" x="16" y="249" width="288" height="44"/>
@@ -143,6 +140,7 @@
                     <connections>
                         <outlet property="txtEmail" destination="Jl4-Qc-GRM" id="gQq-nl-oiz"/>
                         <outlet property="txtPassword" destination="lxn-ik-r9C" id="5Uv-OC-5yy"/>
+                        <segue destination="G2A-yf-pPo" kind="presentation" identifier="SignInSegue" id="cT8-r1-xFf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NlK-y2-GGa" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -155,7 +153,7 @@
                 <viewControllerPlaceholder storyboardName="Main" id="G2A-yf-pPo" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4ky-5Q-pmA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1783" y="703"/>
+            <point key="canvasLocation" x="1545" y="698"/>
         </scene>
         <!--Sign Up-->
         <scene sceneID="DgR-ns-Blx">
@@ -197,7 +195,7 @@
                                 <color key="tintColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                 <state key="normal" title="Sign Up"/>
                                 <connections>
-                                    <segue destination="Iai-s9-Hag" kind="unwind" identifier="SignUpUnwindSegue" unwindAction="prepareForUnwind:" id="WEa-Vq-wkq"/>
+                                    <action selector="submitSignUpInformation:" destination="zTe-pw-0pn" eventType="touchUpInside" id="Ztv-oK-yYK"/>
                                 </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="name@email.com" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qns-GT-6ac">
@@ -233,7 +231,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ULu-qL-7Yt" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="Iai-s9-Hag" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2205" y="196.25"/>
         </scene>
