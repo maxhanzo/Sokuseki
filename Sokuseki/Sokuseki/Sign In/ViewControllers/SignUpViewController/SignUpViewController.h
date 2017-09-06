@@ -12,4 +12,6 @@
 @property (nonatomic, weak) IBOutlet UITextField *txtEmail;
 @property (nonatomic, weak) IBOutlet UITextField *txtPassword;
 @property (nonatomic, weak) IBOutlet UITextField *txtConfirmPassword;
+@property(nonatomic, weak) IBOutlet UIActivityIndicatorView* activityIndicatorView;
+@property(nonatomic, weak) IBOutlet UIView* activityIndicatorBackgroundView;
 @end

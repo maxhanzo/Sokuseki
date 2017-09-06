@@ -15,6 +15,7 @@
 #import "SearchParameters.h"
 #import "Constants.h"
 #import "Utilities.h"
+@import Firebase;
 
 @interface MainViewController ()
     @property (weak, nonatomic) IBOutlet ASJTagsView *tagsView;
@@ -315,6 +316,8 @@
     
     else if([segue.identifier isEqualToString: @"SignOutUnwindSegue"])
     {
+        NSError *signOutError;
+        [[FIRAuth auth] signOut:&signOutError];
         [self.view.window.rootViewController dismissViewControllerAnimated:YES completion:nil];
     }
     

@@ -43,7 +43,7 @@
 		2B46BC3D1E0204C6007C244E /* YearTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B46BC3B1E0204C6007C244E /* YearTableViewCell.xib */; };
 		2B48729C1E006A8800A41572 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B48729B1E006A8800A41572 /* main.m */; };
 		2B48729F1E006A8800A41572 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B48729E1E006A8800A41572 /* AppDelegate.m */; };
-		2B4872A21E006A8800A41572 /* Main/MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B4872A11E006A8800A41572 /* Main/MainViewController.m */; };
+		2B4872A21E006A8800A41572 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B4872A11E006A8800A41572 /* MainViewController.m */; };
 		2B4872A51E006A8800A41572 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B4872A31E006A8800A41572 /* Main.storyboard */; };
 		2B4872A71E006A8800A41572 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B4872A61E006A8800A41572 /* Assets.xcassets */; };
 		2B4872AA1E006A8800A41572 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B4872A81E006A8800A41572 /* LaunchScreen.storyboard */; };
@@ -201,8 +201,8 @@
 		2B48729B1E006A8800A41572 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2B48729D1E006A8800A41572 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		2B48729E1E006A8800A41572 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		2B4872A01E006A8800A41572 /* Main/MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Main/MainViewController.h; sourceTree = "<group>"; };
-		2B4872A11E006A8800A41572 /* Main/MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Main/MainViewController.m; sourceTree = "<group>"; };
+		2B4872A01E006A8800A41572 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Main/MainViewController.h; sourceTree = "<group>"; };
+		2B4872A11E006A8800A41572 /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Main/MainViewController.m; sourceTree = "<group>"; };
 		2B4872A41E006A8800A41572 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2B4872A61E006A8800A41572 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2B4872A91E006A8800A41572 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -678,8 +678,8 @@
 				2BFD5CF71E170CE200AF18B9 /* Contact */,
 				2BFD5CF21E170C7500AF18B9 /* History */,
 				2B4E21061E035D5600502C32 /* MenuTableViewController */,
-				2B4872A01E006A8800A41572 /* Main/MainViewController.h */,
-				2B4872A11E006A8800A41572 /* Main/MainViewController.m */,
+				2B4872A01E006A8800A41572 /* MainViewController.h */,
+				2B4872A11E006A8800A41572 /* MainViewController.m */,
 				2B7D96E81E11CBD600818754 /* Immigration Details */,
 			);
 			name = ViewControllers;
@@ -1550,9 +1550,12 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Sokuseki/Pods-Sokuseki-resources.sh",
+				"${PODS_ROOT}/FBSDKCoreKit/FacebookSDKStrings.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1638,7 +1641,7 @@
 				2B7D97151E11E36A00818754 /* PrefectureStatsTableViewFooter.m in Sources */,
 				2BB948DE1E05F608003E1310 /* Utilities.m in Sources */,
 				2BFD5CF61E170CCD00AF18B9 /* ImmigrationYearsViewController.m in Sources */,
-				2B4872A21E006A8800A41572 /* Main/MainViewController.m in Sources */,
+				2B4872A21E006A8800A41572 /* MainViewController.m in Sources */,
 				2B46BC361E020127007C244E /* ShipTableViewCell.m in Sources */,
 				2BB9486B1E05EE11003E1310 /* Steamer.m in Sources */,
 				2B039BA11E06EB1E00C778AB /* GroupDetailTableViewHeaderCell.m in Sources */,

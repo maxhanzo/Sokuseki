@@ -7,7 +7,10 @@ target 'Sokuseki' do
    
   # Pods for Sokuseki
   pod 'Firebase/Auth'
-
+  pod 'FBSDKCoreKit'
+  pod 'FBSDKLoginKit'
+  pod 'FBSDKShareKit'
+  
   target 'SokusekiTests' do
     inherit! :search_paths
     # Pods for testing

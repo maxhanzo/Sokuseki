@@ -10,6 +10,8 @@
 #import "DBManager.h"
 #import <Fabric/Fabric.h>
 #import <Crashlytics/Crashlytics.h>
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import <FBSDKLoginKit/FBSDKLoginKit.h>
 @import Firebase;
 
 @interface AppDelegate ()
@@ -30,6 +32,8 @@
     [attributes setValue:[UIFont fontWithName:@"HelveticaNeue" size:16] forKey:NSFontAttributeName];
     [[UIBarButtonItem appearance] setTitleTextAttributes:attributes forState:UIControlStateNormal];
 
+    [[FBSDKApplicationDelegate sharedInstance] application:application
+                             didFinishLaunchingWithOptions:launchOptions];
     
     [Fabric with:@[[Crashlytics class]]];
     
@@ -64,7 +68,12 @@
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
 
-
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString*, id> *)options {
+    return [[FBSDKApplicationDelegate sharedInstance] application:app
+                                                          openURL:url
+                                                sourceApplication:options[UIApplicationOpenURLOptionsSourceApplicationKey]
+                                                       annotation:options[UIApplicationOpenURLOptionsAnnotationKey]];
+}
 
 
 @end

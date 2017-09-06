@@ -8,6 +8,7 @@
 
 #import "SignUpViewController.h"
 #import "SignInSignUpBusiness.h"
+@import Firebase;
 
 @interface SignUpViewController ()
 
@@ -18,6 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationItem.hidesBackButton = YES;
+    [self.activityIndicatorBackgroundView setHidden:YES];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -38,11 +40,12 @@
 
 -(IBAction)submitSignUpInformation:(id)sender
 {
+    [self startActivityIndicator];
     NSString* email = self.txtEmail.text ?: @"";
     NSString* password = self.txtPassword.text ?: @"";
     NSString* confirmPassword = self.txtConfirmPassword.text ?: @"";
     
-    if(([email length] == 0)&& ([password length] == 0) && ([confirmPassword length] == 0))
+    if(([email length] == 0)|| ([password length] == 0) || ([confirmPassword length] == 0))
     {
         [self alertControllerWithMessage:@"Preencha todos os campos"];
     }
@@ -53,17 +56,35 @@
         {
             if([SignInSignUpBusiness confirmPassword:password withConfirmation:confirmPassword])
             {
-                //Firebase stuff
-                [self performSegueWithIdentifier:@"SignUpSegue" sender:self];
+                //TODO Firebase stuff
+                [[FIRAuth auth] createUserWithEmail:email
+                                           password:password
+                                         completion:^(FIRUser *_Nullable user, NSError *_Nullable error) {
+                                             if(!error)
+                                             {
+                                                 [self clearFields];
+                                                 [self performUnwindSignInSegue];
+                                             }
+                                             
+                                             else
+                                             {
+                                                 [self stopActivityIndicator];
+                                                 [self alertControllerWithMessage: @"Erro ao criar conta."];
+                                             }
+                                         }];
+
+                
+                
             }
             else
             {
-                
+                [self stopActivityIndicator];
                 [self alertControllerWithMessage: @"A senha não confere. Confirme sua senha."];
             }
         }
         else
         {
+            [self stopActivityIndicator];
             [self alertControllerWithMessage: @"Email inválido. Digite um email no formato exemplo@exemplo.com."];
         }
     }
@@ -82,14 +103,31 @@
     [self presentViewController:alert animated:YES completion:nil];
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(void) startActivityIndicator
+{
+    [self.activityIndicatorBackgroundView setHidden:NO];
+    [self.activityIndicatorView startAnimating];
+    [self.view bringSubviewToFront: self.activityIndicatorBackgroundView];
 }
-*/
+
+-(void) stopActivityIndicator
+{
+    [self.activityIndicatorView stopAnimating];
+    [self.view sendSubviewToBack: self.activityIndicatorBackgroundView];
+    [self.activityIndicatorBackgroundView setHidden:YES];
+}
+
+-(void) performUnwindSignInSegue
+{
+    [self stopActivityIndicator];
+    [self performSegueWithIdentifier:@"UnwindSignUp" sender:self];
+}
+
+-(void) clearFields
+{
+    self.txtEmail.text = @"";
+    self.txtPassword.text = @"";
+    self.txtConfirmPassword.text = @"";
+}
 
 @end

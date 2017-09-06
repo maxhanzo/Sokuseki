@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -38,6 +39,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view hidden="YES" alpha="0.55000000000000004" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="V18-Zl-VaM">
+                                <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="KbO-6q-IvL">
+                                        <rect key="frame" x="111" y="129" width="99" height="32"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="KbO-6q-IvL" secondAttribute="height" multiplier="115:37" id="4RD-fM-YG8"/>
+                                        </constraints>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="KbO-6q-IvL" firstAttribute="top" secondItem="V18-Zl-VaM" secondAttribute="topMargin" constant="121" id="0HW-zm-9hT"/>
+                                    <constraint firstItem="KbO-6q-IvL" firstAttribute="leading" secondItem="V18-Zl-VaM" secondAttribute="leadingMargin" constant="103" id="OHh-RN-Up1"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="KbO-6q-IvL" secondAttribute="trailing" constant="102" id="wYp-gm-oFk"/>
+                                </constraints>
+                            </view>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="name@email.com" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jl4-Qc-GRM">
                                 <rect key="frame" x="16" y="92" width="288" height="44"/>
                                 <constraints>
@@ -65,6 +83,9 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <color key="tintColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                 <state key="normal" title="Sign In"/>
+                                <connections>
+                                    <action selector="signInWithPassword:" destination="WAj-Hi-E0o" eventType="touchUpInside" id="TAG-0L-Ck4"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JRl-vz-KVa">
                                 <rect key="frame" x="16" y="249" width="288" height="44"/>
@@ -88,6 +109,9 @@
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Facebook"/>
+                                <connections>
+                                    <action selector="signInWithFacebook:" destination="WAj-Hi-E0o" eventType="touchUpInside" id="8GT-PQ-ocA"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rI8-yM-olJ">
                                 <rect key="frame" x="16" y="353" width="288" height="44"/>
@@ -115,8 +139,10 @@
                             <constraint firstItem="Gt9-BI-DU0" firstAttribute="top" secondItem="rI8-yM-olJ" secondAttribute="bottom" constant="8" symbolic="YES" id="9uo-Bt-y13"/>
                             <constraint firstItem="Jl4-Qc-GRM" firstAttribute="leading" secondItem="lxn-ik-r9C" secondAttribute="leading" id="HFI-2Y-1Kk"/>
                             <constraint firstItem="dDb-xL-HAO" firstAttribute="leading" secondItem="rI8-yM-olJ" secondAttribute="leading" id="IqB-RW-xSr"/>
+                            <constraint firstAttribute="trailing" secondItem="V18-Zl-VaM" secondAttribute="trailing" id="KwJ-7R-DKU"/>
                             <constraint firstItem="lxn-ik-r9C" firstAttribute="leading" secondItem="YFS-P0-ha3" secondAttribute="leading" id="LCj-ba-GX3"/>
                             <constraint firstItem="YFS-P0-ha3" firstAttribute="leading" secondItem="JRl-vz-KVa" secondAttribute="leading" id="LRa-EC-bRO"/>
+                            <constraint firstItem="V18-Zl-VaM" firstAttribute="leading" secondItem="Avb-u4-bN5" secondAttribute="leading" id="M4L-Dn-UNM"/>
                             <constraint firstItem="JRl-vz-KVa" firstAttribute="leading" secondItem="dDb-xL-HAO" secondAttribute="leading" id="OB0-eL-gyL"/>
                             <constraint firstItem="YFS-P0-ha3" firstAttribute="top" secondItem="lxn-ik-r9C" secondAttribute="bottom" constant="8" symbolic="YES" id="Ogy-aW-Hkh"/>
                             <constraint firstItem="JRl-vz-KVa" firstAttribute="top" secondItem="YFS-P0-ha3" secondAttribute="bottom" constant="8" symbolic="YES" id="PqA-Sr-klJ"/>
@@ -125,19 +151,24 @@
                             <constraint firstItem="Jl4-Qc-GRM" firstAttribute="top" secondItem="EIb-xj-n6o" secondAttribute="bottom" constant="28" id="Zzg-KM-eDr"/>
                             <constraint firstItem="dDb-xL-HAO" firstAttribute="top" secondItem="JRl-vz-KVa" secondAttribute="bottom" constant="8" symbolic="YES" id="b63-LC-Y0w"/>
                             <constraint firstItem="JRl-vz-KVa" firstAttribute="trailing" secondItem="dDb-xL-HAO" secondAttribute="trailing" id="br9-nn-wy6"/>
+                            <constraint firstItem="j1t-Ri-4LY" firstAttribute="top" secondItem="V18-Zl-VaM" secondAttribute="bottom" id="dGs-B2-Okq"/>
                             <constraint firstItem="Jl4-Qc-GRM" firstAttribute="trailing" secondItem="lxn-ik-r9C" secondAttribute="trailing" id="em4-Pr-cqj"/>
                             <constraint firstItem="rI8-yM-olJ" firstAttribute="top" secondItem="dDb-xL-HAO" secondAttribute="bottom" constant="8" symbolic="YES" id="g3K-js-5Rg"/>
                             <constraint firstItem="YFS-P0-ha3" firstAttribute="trailing" secondItem="JRl-vz-KVa" secondAttribute="trailing" id="kid-fk-k4z"/>
+                            <constraint firstItem="V18-Zl-VaM" firstAttribute="top" secondItem="EIb-xj-n6o" secondAttribute="bottom" id="m9p-wD-w9K"/>
                             <constraint firstItem="lxn-ik-r9C" firstAttribute="top" secondItem="Jl4-Qc-GRM" secondAttribute="bottom" constant="9" id="o2i-qd-sJj"/>
                             <constraint firstItem="rI8-yM-olJ" firstAttribute="trailing" secondItem="Gt9-BI-DU0" secondAttribute="trailing" id="p3a-j9-O9r"/>
                             <constraint firstItem="Jl4-Qc-GRM" firstAttribute="trailing" secondItem="Avb-u4-bN5" secondAttribute="trailingMargin" id="qtL-zc-rzE"/>
                             <constraint firstItem="rI8-yM-olJ" firstAttribute="leading" secondItem="Gt9-BI-DU0" secondAttribute="leading" id="uJ9-NX-irh"/>
+                            <constraint firstItem="V18-Zl-VaM" firstAttribute="centerX" secondItem="Avb-u4-bN5" secondAttribute="centerX" id="uQ4-Qa-egO"/>
                             <constraint firstItem="j1t-Ri-4LY" firstAttribute="top" relation="greaterThanOrEqual" secondItem="Gt9-BI-DU0" secondAttribute="bottom" constant="31" id="wAn-fX-3bX"/>
                             <constraint firstItem="dDb-xL-HAO" firstAttribute="trailing" secondItem="rI8-yM-olJ" secondAttribute="trailing" id="wsY-t6-QC8"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Sokuseki" id="XPk-G4-hJF"/>
                     <connections>
+                        <outlet property="activityIndicatorBackgroundView" destination="V18-Zl-VaM" id="BKP-0t-m1a"/>
+                        <outlet property="activityIndicatorView" destination="KbO-6q-IvL" id="LUo-XD-DEY"/>
                         <outlet property="txtEmail" destination="Jl4-Qc-GRM" id="gQq-nl-oiz"/>
                         <outlet property="txtPassword" destination="lxn-ik-r9C" id="5Uv-OC-5yy"/>
                         <segue destination="G2A-yf-pPo" kind="presentation" identifier="SignInSegue" id="cT8-r1-xFf"/>
@@ -167,6 +198,23 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <view hidden="YES" alpha="0.55000001192092896" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Bqt-nA-Zxk">
+                                <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                                <subviews>
+                                    <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="esk-Tx-GeV">
+                                        <rect key="frame" x="111" y="129" width="99" height="32"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="esk-Tx-GeV" secondAttribute="height" multiplier="115:37" id="pPV-tc-A3j"/>
+                                        </constraints>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="esk-Tx-GeV" firstAttribute="leading" secondItem="Bqt-nA-Zxk" secondAttribute="leadingMargin" constant="103" id="37K-2D-OqM"/>
+                                    <constraint firstItem="esk-Tx-GeV" firstAttribute="top" secondItem="Bqt-nA-Zxk" secondAttribute="topMargin" constant="121" id="M2z-cn-Y1M"/>
+                                    <constraint firstAttribute="trailingMargin" secondItem="esk-Tx-GeV" secondAttribute="trailing" constant="102" id="MZK-uD-loz"/>
+                                </constraints>
+                            </view>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ju2-a6-3Ut">
                                 <rect key="frame" x="15" y="181" width="288" height="44"/>
                                 <constraints>
@@ -216,21 +264,30 @@
                             <constraint firstItem="Ju2-a6-3Ut" firstAttribute="top" secondItem="qns-GT-6ac" secondAttribute="bottom" constant="8" symbolic="YES" id="Coe-QH-5wj"/>
                             <constraint firstItem="qns-GT-6ac" firstAttribute="leading" secondItem="yEL-6s-4X1" secondAttribute="leadingMargin" constant="-1" id="NjO-3k-meC"/>
                             <constraint firstItem="Cch-12-VjX" firstAttribute="top" relation="greaterThanOrEqual" secondItem="6na-QL-EaR" secondAttribute="bottom" constant="151" id="OQh-Nr-0si"/>
+                            <constraint firstItem="Bqt-nA-Zxk" firstAttribute="top" secondItem="wwm-6b-gb3" secondAttribute="bottom" id="QWW-lA-dUL"/>
                             <constraint firstItem="Ju2-a6-3Ut" firstAttribute="leading" secondItem="Pep-yC-2ar" secondAttribute="leading" id="TSw-Zw-IJx"/>
                             <constraint firstItem="Pep-yC-2ar" firstAttribute="top" secondItem="Ju2-a6-3Ut" secondAttribute="bottom" constant="8" symbolic="YES" id="azh-za-mZx"/>
+                            <constraint firstItem="Bqt-nA-Zxk" firstAttribute="leading" secondItem="yEL-6s-4X1" secondAttribute="leading" id="bp1-i3-TJg"/>
                             <constraint firstItem="6na-QL-EaR" firstAttribute="top" secondItem="Pep-yC-2ar" secondAttribute="bottom" constant="8" symbolic="YES" id="dfi-52-Uvd"/>
+                            <constraint firstAttribute="trailing" secondItem="Bqt-nA-Zxk" secondAttribute="trailing" id="fhS-wx-mbR"/>
                             <constraint firstItem="qns-GT-6ac" firstAttribute="trailing" secondItem="Ju2-a6-3Ut" secondAttribute="trailing" id="gZx-il-edn"/>
                             <constraint firstItem="qns-GT-6ac" firstAttribute="leading" secondItem="Ju2-a6-3Ut" secondAttribute="leading" id="htg-dB-vwc"/>
+                            <constraint firstItem="Cch-12-VjX" firstAttribute="top" secondItem="Bqt-nA-Zxk" secondAttribute="bottom" id="pu6-li-Bjf"/>
                             <constraint firstItem="Ju2-a6-3Ut" firstAttribute="trailing" secondItem="Pep-yC-2ar" secondAttribute="trailing" id="xYc-EW-gsC"/>
                             <constraint firstItem="qns-GT-6ac" firstAttribute="top" secondItem="wwm-6b-gb3" secondAttribute="bottom" constant="65" id="ymX-31-0H1"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicatorBackgroundView" destination="Bqt-nA-Zxk" id="8Uo-fr-EyF"/>
+                        <outlet property="activityIndicatorView" destination="esk-Tx-GeV" id="3fW-Yk-MeZ"/>
+                        <outlet property="txtConfirmPassword" destination="Pep-yC-2ar" id="8IA-t4-bc7"/>
                         <outlet property="txtEmail" destination="qns-GT-6ac" id="wWW-Wc-uFA"/>
                         <outlet property="txtPassword" destination="Ju2-a6-3Ut" id="OgT-E5-2LT"/>
+                        <segue destination="3S0-3Y-F1W" kind="unwind" identifier="UnwindSignUp" unwindAction="prepareForUnwind:" id="Z4E-M2-Vfg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ULu-qL-7Yt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="3S0-3Y-F1W" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2205" y="196.25"/>
         </scene>
