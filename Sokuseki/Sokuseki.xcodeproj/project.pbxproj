@@ -43,7 +43,7 @@
 		2B46BC3D1E0204C6007C244E /* YearTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B46BC3B1E0204C6007C244E /* YearTableViewCell.xib */; };
 		2B48729C1E006A8800A41572 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B48729B1E006A8800A41572 /* main.m */; };
 		2B48729F1E006A8800A41572 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B48729E1E006A8800A41572 /* AppDelegate.m */; };
-		2B4872A21E006A8800A41572 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B4872A11E006A8800A41572 /* MainViewController.m */; };
+		2B4872A21E006A8800A41572 /* Main/MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B4872A11E006A8800A41572 /* Main/MainViewController.m */; };
 		2B4872A51E006A8800A41572 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B4872A31E006A8800A41572 /* Main.storyboard */; };
 		2B4872A71E006A8800A41572 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2B4872A61E006A8800A41572 /* Assets.xcassets */; };
 		2B4872AA1E006A8800A41572 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B4872A81E006A8800A41572 /* LaunchScreen.storyboard */; };
@@ -53,6 +53,7 @@
 		2B4872D61E00820700A41572 /* ASJTag.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B4872D11E00820700A41572 /* ASJTag.xib */; };
 		2B4872D71E00820700A41572 /* ASJTagsView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B4872D31E00820700A41572 /* ASJTagsView.m */; };
 		2B4872EA1E016A1100A41572 /* TagParameters.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B4872E91E016A1100A41572 /* TagParameters.m */; };
+		2B4C24A81F61C23E001464E8 /* SafariServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B4C24A71F61C23E001464E8 /* SafariServices.framework */; };
 		2B4D30A81E3A7EE50039B874 /* ShipDetailsTableViewHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B4D30A61E3A7EE50039B874 /* ShipDetailsTableViewHeaderCell.m */; };
 		2B4D30A91E3A7EE50039B874 /* ShipDetailsTableViewHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2B4D30A71E3A7EE50039B874 /* ShipDetailsTableViewHeaderCell.xib */; };
 		2B4D30AD1E3A7F1B0039B874 /* ShipJourneyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2B4D30AB1E3A7F1B0039B874 /* ShipJourneyTableViewCell.m */; };
@@ -201,8 +202,8 @@
 		2B48729B1E006A8800A41572 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2B48729D1E006A8800A41572 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		2B48729E1E006A8800A41572 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		2B4872A01E006A8800A41572 /* MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Main/MainViewController.h; sourceTree = "<group>"; };
-		2B4872A11E006A8800A41572 /* MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Main/MainViewController.m; sourceTree = "<group>"; };
+		2B4872A01E006A8800A41572 /* Main/MainViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Main/MainViewController.h; sourceTree = "<group>"; };
+		2B4872A11E006A8800A41572 /* Main/MainViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Main/MainViewController.m; sourceTree = "<group>"; };
 		2B4872A41E006A8800A41572 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2B4872A61E006A8800A41572 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2B4872A91E006A8800A41572 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -220,6 +221,7 @@
 		2B4872D31E00820700A41572 /* ASJTagsView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASJTagsView.m; sourceTree = "<group>"; };
 		2B4872E81E016A1100A41572 /* TagParameters.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TagParameters.h; path = "Main/Shared Instances/TagParameters.h"; sourceTree = "<group>"; };
 		2B4872E91E016A1100A41572 /* TagParameters.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TagParameters.m; path = "Main/Shared Instances/TagParameters.m"; sourceTree = "<group>"; };
+		2B4C24A71F61C23E001464E8 /* SafariServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SafariServices.framework; path = System/Library/Frameworks/SafariServices.framework; sourceTree = SDKROOT; };
 		2B4D30A51E3A7EE50039B874 /* ShipDetailsTableViewHeaderCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ShipDetailsTableViewHeaderCell.h; path = "Main/ViewControllers/Immigration Details/Ships/ShipDetailsTableViewController/ShipDetailsTableViewHeaderCell/ShipDetailsTableViewHeaderCell.h"; sourceTree = "<group>"; };
 		2B4D30A61E3A7EE50039B874 /* ShipDetailsTableViewHeaderCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ShipDetailsTableViewHeaderCell.m; path = "Main/ViewControllers/Immigration Details/Ships/ShipDetailsTableViewController/ShipDetailsTableViewHeaderCell/ShipDetailsTableViewHeaderCell.m"; sourceTree = "<group>"; };
 		2B4D30A71E3A7EE50039B874 /* ShipDetailsTableViewHeaderCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ShipDetailsTableViewHeaderCell.xib; path = "Main/ViewControllers/Immigration Details/Ships/ShipDetailsTableViewController/ShipDetailsTableViewHeaderCell/ShipDetailsTableViewHeaderCell.xib"; sourceTree = "<group>"; };
@@ -348,6 +350,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B4C24A81F61C23E001464E8 /* SafariServices.framework in Frameworks */,
 				2B5947BB1E154E9D002AADC8 /* UIKit.framework in Frameworks */,
 				2B5947B91E154E92002AADC8 /* Foundation.framework in Frameworks */,
 				2B5947B71E154E7D002AADC8 /* CoreGraphics.framework in Frameworks */,
@@ -678,8 +681,8 @@
 				2BFD5CF71E170CE200AF18B9 /* Contact */,
 				2BFD5CF21E170C7500AF18B9 /* History */,
 				2B4E21061E035D5600502C32 /* MenuTableViewController */,
-				2B4872A01E006A8800A41572 /* MainViewController.h */,
-				2B4872A11E006A8800A41572 /* MainViewController.m */,
+				2B4872A01E006A8800A41572 /* Main/MainViewController.h */,
+				2B4872A11E006A8800A41572 /* Main/MainViewController.m */,
 				2B7D96E81E11CBD600818754 /* Immigration Details */,
 			);
 			name = ViewControllers;
@@ -1176,6 +1179,7 @@
 		2BB948E81E05F800003E1310 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2B4C24A71F61C23E001464E8 /* SafariServices.framework */,
 				2B5947BA1E154E9D002AADC8 /* UIKit.framework */,
 				2B5947B81E154E92002AADC8 /* Foundation.framework */,
 				2B5947B61E154E7D002AADC8 /* CoreGraphics.framework */,
@@ -1554,6 +1558,8 @@
 				"${PODS_ROOT}/FBSDKCoreKit/FacebookSDKStrings.bundle",
 				"${PODS_ROOT}/GTMOAuth2/Source/Touch/GTMOAuth2ViewTouch.xib",
 				"${PODS_ROOT}/GoogleSignIn/Resources/GoogleSignIn.bundle",
+				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework/TwitterKitResources.bundle",
+				"${PODS_ROOT}/TwitterKit/iOS/TwitterKit.framework/TwitterShareExtensionUIResources.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
@@ -1643,7 +1649,7 @@
 				2B7D97151E11E36A00818754 /* PrefectureStatsTableViewFooter.m in Sources */,
 				2BB948DE1E05F608003E1310 /* Utilities.m in Sources */,
 				2BFD5CF61E170CCD00AF18B9 /* ImmigrationYearsViewController.m in Sources */,
-				2B4872A21E006A8800A41572 /* MainViewController.m in Sources */,
+				2B4872A21E006A8800A41572 /* Main/MainViewController.m in Sources */,
 				2B46BC361E020127007C244E /* ShipTableViewCell.m in Sources */,
 				2BB9486B1E05EE11003E1310 /* Steamer.m in Sources */,
 				2B039BA11E06EB1E00C778AB /* GroupDetailTableViewHeaderCell.m in Sources */,

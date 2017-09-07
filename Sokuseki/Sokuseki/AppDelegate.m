@@ -12,6 +12,7 @@
 #import <Crashlytics/Crashlytics.h>
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
+#import <TwitterKit/TwitterKit.h>
 @import Firebase;
 
 @interface AppDelegate ()
@@ -41,6 +42,8 @@
     
     [GIDSignIn sharedInstance].clientID = [FIRApp defaultApp].options.clientID;
     [GIDSignIn sharedInstance].delegate = self;
+    
+    [[Twitter sharedInstance] startWithConsumerKey:@"AVnsjwNSM7cDfdDzScsN363aI" consumerSecret:@"TiRKB5pMhrfQLj3w119TwpUvU1HofOv1hKUpqKfcJ15y8cpGex"];
     
     return YES;
 }
@@ -75,10 +78,12 @@
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString*, id> *)options {
     return  [[GIDSignIn sharedInstance] handleURL:url
                                 sourceApplication:options[UIApplicationOpenURLOptionsSourceApplicationKey]
-                                       annotation:options[UIApplicationOpenURLOptionsAnnotationKey]]|| [[FBSDKApplicationDelegate sharedInstance] application:app
+                                       annotation:options[UIApplicationOpenURLOptionsAnnotationKey]]||
+    [[FBSDKApplicationDelegate sharedInstance] application:app
                                                           openURL:url
                                                 sourceApplication:options[UIApplicationOpenURLOptionsSourceApplicationKey]
-                                                       annotation:options[UIApplicationOpenURLOptionsAnnotationKey]];
+                                                       annotation:options[UIApplicationOpenURLOptionsAnnotationKey]]||
+    [[Twitter sharedInstance] application:app openURL:url options:options];
 }
 
 - (void)signIn:(GIDSignIn *)signIn didSignInForUser:(GIDGoogleUser *)user

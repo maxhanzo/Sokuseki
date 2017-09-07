@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
+#import <TwitterKit/TwitterKit.h>
 @import GoogleSignIn;
 
 @interface SignInViewController : UIViewController<GIDSignInUIDelegate, GIDSignInDelegate>
@@ -16,7 +17,8 @@
 @property (nonatomic, weak) IBOutlet UITextField *txtPassword;
 @property(nonatomic, weak) IBOutlet UIActivityIndicatorView* activityIndicatorView;
 @property(nonatomic, weak) IBOutlet UIView* activityIndicatorBackgroundView;
-@property(nonatomic, strong) FBSDKLoginButton *loginButton;
+@property(nonatomic, weak) IBOutlet TWTRLogInButton* btnTwitterLoginButton;
+
 
 -(IBAction) signInWithPassword: (id) sender;
 -(IBAction) signInWithFacebook: (id) sender;

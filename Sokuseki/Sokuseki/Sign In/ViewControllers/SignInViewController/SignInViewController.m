@@ -9,6 +9,7 @@
 #import "SignInSignUpBusiness.h"
 
 @import Firebase;
+
 @interface SignInViewController ()
 @property(weak, nonatomic) IBOutlet GIDSignInButton *signInButton;
 @end
@@ -19,6 +20,27 @@
     [super viewDidLoad];
     [GIDSignIn sharedInstance].uiDelegate = self;
     [GIDSignIn sharedInstance].delegate = self;
+    
+    [self.btnTwitterLoginButton setLogInCompletion:^(TWTRSession *session, NSError *error) {
+        // play with Twitter session
+        if(error != nil) {
+           
+            
+        } else {
+            FIRAuthCredential *credential =
+            [FIRTwitterAuthProvider credentialWithToken:session.authToken
+                                                 secret:session.authTokenSecret];
+            [[FIRAuth auth] signInWithCredential:credential
+                                      completion:^(FIRUser *user, NSError *error) {
+                                          if (error) {
+                                              NSLog(@"Error - Twitter");
+                                              return;
+                                          }
+                                          [self performSignInSegue];
+                                      }];
+        }
+    }];
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -115,7 +137,10 @@
         }
     }];
 }
--(IBAction) signInWithTwitter: (id) sender{}
+-(IBAction) signInWithTwitter: (id) sender
+{
+
+}
 -(IBAction) signInWithGoogle: (id) sender
 {
    
@@ -193,9 +218,9 @@
                                       }
                                       [self performSignInSegue];
                                   }];
-        // ...
+        
     } else {
-        // ...
+        NSLog(@"%@", error);
     }
 }
 

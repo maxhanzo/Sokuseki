@@ -6,6 +6,7 @@
 //  Copyright © 2016 UedaSoft IT Solutions. All rights reserved.
 //
 
+#import <TwitterKit/TwitterKit.h>
 #import "MainViewController.h"
 #import "ASJTagsView.h"
 #import "NameSurnameInputViewController.h"
@@ -320,6 +321,14 @@
         NSError *signOutError;
         [[FIRAuth auth] signOut:&signOutError];
         [[GIDSignIn sharedInstance] signOut];
+        
+        TWTRSessionStore *twitterStore = [[Twitter sharedInstance] sessionStore];
+        if(twitterStore)
+        {
+            NSString *userID = twitterStore.session.userID;        
+            [twitterStore logOutUserID:userID];
+        }
+        
         [self.view.window.rootViewController dismissViewControllerAnimated:YES completion:nil];
     }
     

@@ -123,7 +123,7 @@
                                 <color key="tintColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                 <state key="normal" title="Google"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gt9-BI-DU0">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gt9-BI-DU0" customClass="TWTRLogInButton">
                                 <rect key="frame" x="16" y="405" width="288" height="44"/>
                                 <color key="backgroundColor" red="0.40000000600000002" green="0.80000001190000003" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -169,6 +169,7 @@
                     <connections>
                         <outlet property="activityIndicatorBackgroundView" destination="V18-Zl-VaM" id="BKP-0t-m1a"/>
                         <outlet property="activityIndicatorView" destination="KbO-6q-IvL" id="LUo-XD-DEY"/>
+                        <outlet property="btnTwitterLoginButton" destination="Gt9-BI-DU0" id="cTf-Yj-9ar"/>
                         <outlet property="signInButton" destination="rI8-yM-olJ" id="t30-Uk-53n"/>
                         <outlet property="txtEmail" destination="Jl4-Qc-GRM" id="gQq-nl-oiz"/>
                         <outlet property="txtPassword" destination="lxn-ik-r9C" id="5Uv-OC-5yy"/>
