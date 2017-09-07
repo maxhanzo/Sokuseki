@@ -38,6 +38,10 @@
     [Fabric with:@[[Crashlytics class]]];
     
     [FIRApp configure];
+    
+    [GIDSignIn sharedInstance].clientID = [FIRApp defaultApp].options.clientID;
+    [GIDSignIn sharedInstance].delegate = self;
+    
     return YES;
 }
 
@@ -69,10 +73,31 @@
 }
 
 - (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<NSString*, id> *)options {
-    return [[FBSDKApplicationDelegate sharedInstance] application:app
+    return  [[GIDSignIn sharedInstance] handleURL:url
+                                sourceApplication:options[UIApplicationOpenURLOptionsSourceApplicationKey]
+                                       annotation:options[UIApplicationOpenURLOptionsAnnotationKey]]|| [[FBSDKApplicationDelegate sharedInstance] application:app
                                                           openURL:url
                                                 sourceApplication:options[UIApplicationOpenURLOptionsSourceApplicationKey]
                                                        annotation:options[UIApplicationOpenURLOptionsAnnotationKey]];
+}
+
+- (void)signIn:(GIDSignIn *)signIn didSignInForUser:(GIDGoogleUser *)user
+     withError:(NSError *)error {
+    // Perform any operations on signed in user here.
+    //NSString *userId = user.userID;                  // For client-side use only!
+    //NSString *idToken = user.authentication.idToken; // Safe to send to the server
+    //NSString *fullName = user.profile.name;
+    //NSString *givenName = user.profile.givenName;
+    //NSString *familyName = user.profile.familyName;
+    //NSString *email = user.profile.email;
+    // ...
+}
+
+- (void)signIn:(GIDSignIn *)signIn
+didDisconnectWithUser:(GIDGoogleUser *)user
+     withError:(NSError *)error {
+    // Perform any operations when the user disconnects from app here.
+    // ...
 }
 
 

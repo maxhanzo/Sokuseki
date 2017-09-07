@@ -113,7 +113,7 @@
                                     <action selector="signInWithFacebook:" destination="WAj-Hi-E0o" eventType="touchUpInside" id="8GT-PQ-ocA"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rI8-yM-olJ">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rI8-yM-olJ" customClass="GIDSignInButton">
                                 <rect key="frame" x="16" y="353" width="288" height="44"/>
                                 <color key="backgroundColor" red="1" green="0.80000001190000003" blue="0.40000000600000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
@@ -169,6 +169,7 @@
                     <connections>
                         <outlet property="activityIndicatorBackgroundView" destination="V18-Zl-VaM" id="BKP-0t-m1a"/>
                         <outlet property="activityIndicatorView" destination="KbO-6q-IvL" id="LUo-XD-DEY"/>
+                        <outlet property="signInButton" destination="rI8-yM-olJ" id="t30-Uk-53n"/>
                         <outlet property="txtEmail" destination="Jl4-Qc-GRM" id="gQq-nl-oiz"/>
                         <outlet property="txtPassword" destination="lxn-ik-r9C" id="5Uv-OC-5yy"/>
                         <segue destination="G2A-yf-pPo" kind="presentation" identifier="SignInSegue" id="cT8-r1-xFf"/>

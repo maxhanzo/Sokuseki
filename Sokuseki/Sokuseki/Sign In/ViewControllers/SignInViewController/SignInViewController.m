@@ -5,20 +5,20 @@
 //  Created by Max Ueda on 9/3/17.
 //  Copyright © 2017 UedaSoft IT Solutions. All rights reserved.
 //
-#import <FBSDKCoreKit/FBSDKCoreKit.h>
-#import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import "SignInViewController.h"
 #import "SignInSignUpBusiness.h"
 
 @import Firebase;
 @interface SignInViewController ()
-
+@property(weak, nonatomic) IBOutlet GIDSignInButton *signInButton;
 @end
 
 @implementation SignInViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [GIDSignIn sharedInstance].uiDelegate = self;
+    [GIDSignIn sharedInstance].delegate = self;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -116,7 +116,10 @@
     }];
 }
 -(IBAction) signInWithTwitter: (id) sender{}
--(IBAction) signInWithGoogle: (id) sender{}
+-(IBAction) signInWithGoogle: (id) sender
+{
+   
+}
 
 -(void) alertControllerWithMessage: (NSString*) message
 {
@@ -157,6 +160,44 @@
     self.txtPassword.text = @"";
 }
 
+#pragma mark Google Sign In stuff
+// Present a view that prompts the user to sign in with Google
+- (void)signInWillDispatch:(GIDSignIn *)signIn error:(NSError *)error {
+    //[myActivityIndicator stopAnimating];
+}
+
+// Present a view that prompts the user to sign in with Google
+- (void)signIn:(GIDSignIn *)signIn presentViewController:(UIViewController *)viewController {
+    [self presentViewController:viewController animated:YES completion:nil];
+}
+
+// Dismiss the "Sign in with Google" view
+- (void)signIn:(GIDSignIn *)signIn dismissViewController:(UIViewController *)viewController {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)signIn:(GIDSignIn *)signIn didSignInForUser:(GIDGoogleUser *)user
+     withError:(NSError *)error {
+    // ...
+    if (error == nil) {
+        GIDAuthentication *authentication = user.authentication;
+        FIRAuthCredential *credential =
+        [FIRGoogleAuthProvider credentialWithIDToken:authentication.idToken
+                                         accessToken:authentication.accessToken];
+        [self startActivityIndicator];
+        [[FIRAuth auth] signInWithCredential:credential
+                                  completion:^(FIRUser *user, NSError *error) {
+                                      if (error) {
+                                          // ...
+                                          return;
+                                      }
+                                      [self performSignInSegue];
+                                  }];
+        // ...
+    } else {
+        // ...
+    }
+}
 
 
 @end

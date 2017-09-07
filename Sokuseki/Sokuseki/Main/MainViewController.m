@@ -16,6 +16,7 @@
 #import "Constants.h"
 #import "Utilities.h"
 @import Firebase;
+@import GoogleSignIn;
 
 @interface MainViewController ()
     @property (weak, nonatomic) IBOutlet ASJTagsView *tagsView;
@@ -318,6 +319,7 @@
     {
         NSError *signOutError;
         [[FIRAuth auth] signOut:&signOutError];
+        [[GIDSignIn sharedInstance] signOut];
         [self.view.window.rootViewController dismissViewControllerAnimated:YES completion:nil];
     }
     

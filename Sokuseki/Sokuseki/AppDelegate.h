@@ -7,8 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+@import GoogleSignIn;
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate, GIDSignInDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 //These properties are to deal with the Database "read only" problem.

@@ -10,7 +10,7 @@ target 'Sokuseki' do
   pod 'FBSDKCoreKit'
   pod 'FBSDKLoginKit'
   pod 'FBSDKShareKit'
-  
+  pod 'GoogleSignIn'
   target 'SokusekiTests' do
     inherit! :search_paths
     # Pods for testing
