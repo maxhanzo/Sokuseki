@@ -26,7 +26,6 @@
     self.shipsArray = [dbManager retrieveAllSteamers];
     self.selectedShip = nil;
     
-    
     self.searchController = [[UISearchController alloc] initWithSearchResultsController:nil];
     self.searchController.searchResultsUpdater = self;
     self.searchController.dimsBackgroundDuringPresentation = NO;
@@ -60,9 +59,16 @@
 
 #pragma mark - Table view data source
 
+
+
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
 
     return 1;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 0;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {

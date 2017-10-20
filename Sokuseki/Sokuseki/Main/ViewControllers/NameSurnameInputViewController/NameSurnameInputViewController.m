@@ -41,23 +41,15 @@
     self.searchController.dimsBackgroundDuringPresentation = NO;
     
     self.searchController.searchBar.delegate = self;
-    self.searchController.delegate =self; 
+    self.searchController.delegate =self;
     self.tableView.tableHeaderView = self.searchController.searchBar;
     
-    self.definesPresentationContext = YES;
     
     //If your collection of data is sorted, you won't need this.
     self.textEntries =  [self.textEntries sortedArrayUsingSelector:@selector(localizedCaseInsensitiveCompare:)];
     
     self.textSuggestions = [NSMutableArray array];
 
-    //Blurred effect
-    UIBlurEffect * blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleExtraLight];
-    UIVisualEffectView *beView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
-    beView.frame = self.view.bounds;
-    [self.view insertSubview:beView atIndex:0];
-    
-    
     //Placeholder text
     NSString *placeHolderText = nil;
     
@@ -177,6 +169,11 @@
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 0;
 }
 
 -(NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
